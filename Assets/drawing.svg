@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="168.84964"
-     inkscape:cy="667.74361"
+     inkscape:zoom="0.175"
+     inkscape:cx="-946.62216"
+     inkscape:cy="-1246.3967"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -66,7 +66,7 @@
        r="123.46286" />
     <g
        id="g4202"
-       transform="matrix(0.64132265,0,0,0.64132265,-33.233414,26.514626)">
+       transform="matrix(0.64132265,0,0,0.64132265,-33.233414,29.09077)">
       <rect
          y="478.80475"
          x="317.03375"
@@ -88,5 +88,327 @@
          id="path4138"
          style="opacity:1;fill:#4b4ba7;fill-opacity:1;stroke:#000000;stroke-width:20;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:20;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4200-4"
+       width="256"
+       height="256"
+       x="499.93332"
+       y="296.33667" />
+    <path
+       style="fill:#fcff00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:12.71418858;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 636.70956,410.50617 c 25.90899,-0.70492 54.45763,2.34085 80.41857,7.81619 -10.48266,-22.96262 -30.20454,-52.96393 -48.07555,-81.55519 -33.62224,-11.74553 -85.76567,-17.3288 -104.49184,-14.75888 12.43993,14.97277 24.87261,29.06399 37.33145,46.18347 -26.16287,-1.30926 -53.94624,4.85961 -77.74686,10.4359 77.83581,49.39925 120.57611,95.09202 167.07314,145.29393 -8.84638,-36.3122 -34.49752,-86.69992 -54.50875,-113.41569 z"
+       id="path4264-3-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\planningSheetPring.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"
+       inkscape:transform-center-x="-3.0903711"
+       inkscape:transform-center-y="37.739379" />
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:20;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4200-46"
+       width="256"
+       height="256"
+       x="-238.396"
+       y="296.33667" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#aa0000;stroke-width:11.89284134;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4247"
+       sodipodi:sides="12"
+       sodipodi:cx="-111.75319"
+       sodipodi:cy="422.97949"
+       sodipodi:r1="108.25808"
+       sodipodi:r2="117.67181"
+       sodipodi:arg1="0.78539816"
+       sodipodi:arg2="1.0471975"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m -35.203167,499.52951 -17.714114,25.35675 -30.816655,2.66251 -28.019244,13.10253 -28.01926,-13.10253 -30.81665,-2.6625 -17.71412,-25.35676 -25.35675,-17.71411 -2.6625,-30.81665 -13.10254,-28.01925 13.10254,-28.01926 2.66249,-30.81665 25.35676,-17.71412 17.71411,-25.35675 30.81666,-2.6625 28.01924,-13.10253 28.019263,13.10253 30.816646,2.6625 17.714124,25.35675 25.3567485,17.71411 2.6625042,30.81666 13.1025315,28.01925 -13.1025313,28.01925 -2.6624984,30.81665 z"
+       inkscape:transform-center-x="5.6883648"
+       inkscape:transform-center-y="-5.6883419" />
+    <rect
+       style="opacity:1;fill:#8a916f;fill-opacity:1;stroke:none;stroke-width:20;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4200-46-3-9"
+       width="2828.856"
+       height="2828.856"
+       x="-1527.5651"
+       y="833.9549"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354"
+       cx="-1234.2858"
+       cy="1095.2194"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1"
+       cx="-1234.2858"
+       cy="1646.6479"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-3"
+       cx="-1234.2858"
+       cy="2198.0767"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6"
+       cx="-1234.2858"
+       cy="2749.5051"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-7"
+       cx="-1234.2858"
+       cy="3300.9338"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-9"
+       cx="-777.14288"
+       cy="1095.2194"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-8"
+       cx="-777.14288"
+       cy="1646.6479"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-3-5"
+       cx="-777.14288"
+       cy="2198.0767"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-9"
+       cx="-777.14288"
+       cy="2749.5051"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-7-4"
+       cx="-777.14288"
+       cy="3300.9338"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-5"
+       cx="-320"
+       cy="1095.2194"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-2"
+       cx="-320"
+       cy="1646.6479"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-3-8"
+       cx="-320"
+       cy="2198.0767"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-2"
+       cx="-320"
+       cy="2749.5051"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-7-3"
+       cx="-320"
+       cy="3300.9338"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-6"
+       cx="137.14294"
+       cy="1095.2194"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-80"
+       cx="137.14294"
+       cy="1646.6479"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-3-6"
+       cx="137.14294"
+       cy="2198.0767"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-8"
+       cx="137.14294"
+       cy="2749.5051"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-7-8"
+       cx="137.14294"
+       cy="3300.9338"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-53"
+       cx="594.28577"
+       cy="1095.2194"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-9"
+       cx="594.28577"
+       cy="1646.6479"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-3-2"
+       cx="594.28577"
+       cy="2198.0767"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-1"
+       cx="594.28577"
+       cy="2749.5051"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-7-0"
+       cx="594.28577"
+       cy="3300.9338"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-67"
+       cx="1051.4286"
+       cy="1095.2194"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-0"
+       cx="1051.4286"
+       cy="1646.6479"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-3-27"
+       cx="1051.4286"
+       cy="2198.0767"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-3"
+       cx="1051.4286"
+       cy="2749.5051"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
+    <circle
+       style="opacity:1;fill:#93987b;fill-opacity:1;stroke:none;stroke-width:10;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4354-1-6-7-87"
+       cx="1051.4286"
+       cy="3300.9338"
+       r="142.85715"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
+       inkscape:export-xdpi="32.578541"
+       inkscape:export-ydpi="32.578541" />
   </g>
 </svg>

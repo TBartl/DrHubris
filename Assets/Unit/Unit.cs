@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour {
 
+	public static List<List<Unit>> allUnits;
+
 	Rigidbody2D rigid;
 	PlayerIdentity identity;
 
@@ -24,8 +26,15 @@ public class Unit : MonoBehaviour {
 	int energy = 0;
 
 	void Awake() {
+		if (allUnits == null) {
+			allUnits = new List<List<Unit>>();
+			for (int i = 0; i < PlayerIdentity.numPlayers; i++) {
+				allUnits.Add(new List<Unit>());
+			}
+		}
 		rigid = this.GetComponent<Rigidbody2D>();
 		identity = this.GetComponent<PlayerIdentity>();
+		
 	}
 
 	void Start() {
@@ -34,6 +43,12 @@ public class Unit : MonoBehaviour {
 		invulnSprite.gameObject.SetActive(false);
 		UpdateEnergy(0);
 		gameObject.layer += identity.id;
+
+		allUnits[identity.id].Add(this);
+	}
+
+	void OnDestroy() {
+		allUnits[identity.id].Remove(this);
 	}
 
 	void Update() {
@@ -69,7 +84,7 @@ public class Unit : MonoBehaviour {
 		{
 			Debug.Log("Bonk");
 			Unit other = collision.gameObject.GetComponent<Unit>();
-			if (other.GetID() != this.GetID())
+			if (!invuln && other.GetID() != this.GetID())
 				Destroy(this.gameObject);
 		} else if (collision.gameObject.tag == "Wall") {
 			direction = Vector2.Reflect(direction, collision.contacts[0].normal).normalized;
@@ -79,7 +94,7 @@ public class Unit : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.tag == "Pickup") {
 			Destroy(collision.gameObject);
-			UpdateEnergy(energy + 1);
+			UpdateEnergy(energy);
 		}
 	}
 

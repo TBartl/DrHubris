@@ -5,104 +5,125 @@ using XInputDotNetPure; // Required in C#
 
 public class PlayerSelector : MonoBehaviour {
 
-	//public delegate void OnArrowFinished(Vector2 direction);
-
-	PlayerIdentity identity;	
-	SpriteRenderer sr;
-
-	public SpriteRenderer selectionSprite;
-	public SpriteRenderer arrowSprite;
+	PlayerIdentity identity;
 
 	public float speed;
-	public float radius;
-
-	List<Unit> selected = new List<Unit>();
-	bool selecting = false;
+	
+	Unit currentUnit;
 
 	GamePadState padState;
 
+	bool rightStickReset = true;
+
+	public float moveTime = 1f;
+
+	public AnimationCurve scoreByDot;
+	public AnimationCurve scoreByDistance;
+
+	Vector2 lastLeftStickMovement;
+
+	Coroutine cameraCo;
+
 	void Awake() {
-		sr = this.GetComponent<SpriteRenderer>();
 		identity = this.GetComponent<PlayerIdentity>();
 		padState = GamePad.GetState((PlayerIndex)identity.id);
+	}
+
+	void Start() {
+		cameraCo = StartCoroutine(FollowUnit());
+		currentUnit = Unit.allUnits[identity.id][0];
+		if (currentUnit)
+			currentUnit.SetSelected(true);
 	}
 
 	void Update() {
 		padState = GamePad.GetState((PlayerIndex)identity.id);
 
-		if (padState.Buttons.X != ButtonState.Pressed && padState.Buttons.B != ButtonState.Pressed) {
-			UpdateMovement();
-			arrowSprite.enabled = false;
-		} else {
-			arrowSprite.enabled = true;
-			if (GetLeftJoystickDir().magnitude > .5f) {
-				Vector2 inputDir = GetLeftJoystickDir().normalized;
-				float angle = Mathf.Atan2(inputDir.y, inputDir.x) * Mathf.Rad2Deg - 90;
-				arrowSprite.transform.rotation = Quaternion.Euler(0, 0, angle);
-			}
+		Vector2 rightJoystick = GetRightJoystickDir();
+		if (rightJoystick.magnitude < .4f) {
+			rightStickReset = true;
 		}
-		if (padState.Buttons.A == ButtonState.Pressed && !selecting) {
-			StartCoroutine(SelectNewGroup());
+		if (rightJoystick.magnitude > .8f && rightStickReset) {
+			MoveToAnotherUnit(rightJoystick.normalized);
+			rightStickReset = false;
 		}
-		if (GetLeftJoystickDir().magnitude > .5f) {
-			if (padState.Buttons.X == ButtonState.Pressed) {
-				IssueMoveToSelected(GetLeftJoystickDir());
-			}
-			if (padState.Buttons.B == ButtonState.Pressed) {
-				IssueFireToSelected(GetLeftJoystickDir());
-			}
+
+		if (!currentUnit)
+			return;
+
+		Vector2 leftJoystick = GetLeftJoystickDir();
+
+		if (leftJoystick.magnitude > .5f) {
+			lastLeftStickMovement = leftJoystick;
+			currentUnit.CommandMoveInDirection(leftJoystick);
 		}
-	}
-
-	IEnumerator SelectNewGroup() {
-		selecting = true;
-		ClearSelected();
-		this.transform.localScale = Vector3.one * radius;
-
-		while (padState.Buttons.A == ButtonState.Pressed) {
-			Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position, radius / 2f);
-			foreach (Collider2D collider in colliders) {
-				Unit unit = collider.GetComponent<Unit>();
-				if (unit && unit.GetID() == identity.id && !selected.Contains(unit)) {
-					unit.SetSelected(true);
-					selected.Add(unit);
-				}
-			}
-			yield return new WaitForFixedUpdate();
-		}
-		this.transform.localScale = Vector3.one;
-		selecting = false;
-	}
-
-	void UpdateMovement() {
-		this.transform.position += (Vector3)GetLeftJoystickDir() * speed * Time.deltaTime;
-	}
-
-	void IssueMoveToSelected(Vector2 direction) {
-		foreach (Unit unit in selected) {
-			if (unit)
-				unit.GetComponent<Unit>().CommandMoveInDirection(direction);
+		if (padState.Triggers.Right > .5f) {
+			currentUnit.CommandFire(lastLeftStickMovement);
 		}
 	}
 
-	void IssueFireToSelected(Vector2 direction) {
-		foreach (Unit unit in selected) {
-			if (unit)
-				unit.GetComponent<Unit>().CommandFire(direction);
+	void MoveToAnotherUnit(Vector2 dir) {
+		Unit currentBest = null;
+		foreach (Unit u in Unit.allUnits[identity.id]) {
+			if (u == null)
+				continue;
+			if (u == currentUnit)
+				continue;
+			if (currentBest == null) {
+				currentBest = u;
+				continue;
+			}
+			float currentBestScore = GetUnitScore(dir, currentBest);
+			float thisScore = GetUnitScore(dir, u);
+
+			if (thisScore > currentBestScore)
+				currentBest = u;
+		}
+		if (currentBest) {
+			if (currentUnit)
+				currentUnit.SetSelected(false);
+			currentBest.SetSelected(true);
+
+			currentUnit = currentBest;
+			StopCoroutine(cameraCo);
+			cameraCo = StartCoroutine(MoveToNewUnit());
 		}
 	}
 
+	float GetUnitScore(Vector2 dir, Unit u) {
+		float distance = Vector3.Distance(this.transform.position, u.transform.position);
+		float dot = Vector3.Dot(dir, (u.transform.position - this.transform.position).normalized);
 
-	void ClearSelected() {
-		foreach (Unit unit in selected) {
-			if (unit) {
-				unit.SetSelected(false);
-			}
-		}
-		selected = new List<Unit>();
+		float score = 0;
+		score += scoreByDot.Evaluate(dot);
+		score += scoreByDistance.Evaluate(distance);
+		Debug.Log(score);
+		return score;
 	}
 
 	Vector2 GetLeftJoystickDir() {
 		return new Vector2(padState.ThumbSticks.Left.X, padState.ThumbSticks.Left.Y);
 	}
+	Vector2 GetRightJoystickDir() {
+		return new Vector2(padState.ThumbSticks.Right.X, padState.ThumbSticks.Right.Y);
+	}
+
+	IEnumerator FollowUnit() {
+		while (true) {
+			if (currentUnit)
+				this.transform.position = currentUnit.transform.position;
+			yield return null;
+		}
+	}
+
+	IEnumerator MoveToNewUnit() {
+		Vector3 from = this.transform.position;
+		for (float t = 0; t < moveTime; t += Time.deltaTime) {
+			if (currentUnit)
+				this.transform.position = Vector2.Lerp(from, currentUnit.transform.position, Mathf.Pow(t / moveTime, .5f));
+			yield return null;
+		}
+		cameraCo = StartCoroutine(FollowUnit());
+	}
+
 }
