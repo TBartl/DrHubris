@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.175"
-     inkscape:cx="-946.62216"
-     inkscape:cy="-1246.3967"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="-126.17575"
+     inkscape:cy="782.45508"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -109,10 +109,10 @@
     <rect
        style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:20;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4200-46"
-       width="256"
-       height="256"
-       x="-238.396"
-       y="296.33667" />
+       width="369.13708"
+       height="369.13708"
+       x="-294.96454"
+       y="238.75797" />
     <path
        sodipodi:type="star"
        style="opacity:1;fill:none;fill-opacity:1;stroke:#aa0000;stroke-width:11.89284134;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -410,5 +410,22 @@
        inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\Environment\ground.png"
        inkscape:export-xdpi="32.578541"
        inkscape:export-ydpi="32.578541" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#aa0000;stroke-width:16.05380249;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4247-0"
+       sodipodi:sides="12"
+       sodipodi:cx="-113.74338"
+       sodipodi:cy="420.98932"
+       sodipodi:r1="146.13445"
+       sodipodi:r2="158.84177"
+       sodipodi:arg1="0.78539816"
+       sodipodi:arg2="1.0471975"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m -10.41072,524.32198 -23.911767,34.22834 -41.598513,3.59403 -37.82237,17.68674 -37.82238,-17.68674 -41.5985,-3.59402 -23.91178,-34.22835 -34.22835,-23.91177 -3.59403,-41.59851 -17.68673,-37.82237 17.68673,-37.82239 3.59402,-41.5985 34.22835,-23.91178 23.91177,-34.22834 41.59851,-3.59404 37.82237,-17.68673 37.822389,17.68673 41.598499,3.59403 23.911781,34.22835 34.228344,23.91177 3.594034,41.59851 17.686732,37.82237 -17.686732,37.82239 -3.594026,41.59849 z"
+       inkscape:transform-center-x="7.6785534"
+       inkscape:transform-center-y="-7.6785152" />
   </g>
 </svg>

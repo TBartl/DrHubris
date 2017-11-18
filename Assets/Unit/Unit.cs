@@ -82,7 +82,6 @@ public class Unit : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.gameObject.tag == "Unit")
 		{
-			Debug.Log("Bonk");
 			Unit other = collision.gameObject.GetComponent<Unit>();
 			if (!invuln && other.GetID() != this.GetID())
 				Destroy(this.gameObject);

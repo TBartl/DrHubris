@@ -64,6 +64,8 @@ public class PlayerSelector : MonoBehaviour {
 		}
 		aWasPressed = aIsPressed;
 
+		DrawConnections();
+
 		if (!currentUnit)
 			return;
 
@@ -74,8 +76,6 @@ public class PlayerSelector : MonoBehaviour {
 		if (padState.Buttons.B == ButtonState.Pressed) {
 			currentUnit.CommandFire(lastLeftStickMovement);
 		}
-
-		DrawConnections();
 	}
 
 	void UpdateBestUnit(Vector2 dir) {
@@ -124,15 +124,15 @@ public class PlayerSelector : MonoBehaviour {
 				lr.SetPosition(0, currentUnit.transform.position + thisOffset);
 				lr.SetPosition(1, u.transform.position + thisOffset);
 
-				float percentDist = 1 - Vector3.Distance(this.transform.position, u.transform.position) / maxTransferDistance;
-				float sizeMultiplier = lrWidthByDistPercent.Evaluate(percentDist);
 				if (u == bestConnectedUnit) {
 					lr.material = targetConnectionMat;
-					sizeMultiplier *= 1.3f;
 				}
 				else {
 					lr.material = regularConnectionMat;
 				}
+				float percentDist = 1 - Vector3.Distance(this.transform.position, u.transform.position) / maxTransferDistance;
+				float sizeMultiplier = lrWidthByDistPercent.Evaluate(percentDist);
+				lr.endWidth = sizeMultiplier;
 			}
 			unitIndex += 1;
 		}
