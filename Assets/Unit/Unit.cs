@@ -99,7 +99,7 @@ public class Unit : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.tag == "Pickup") {
 			Destroy(collision.gameObject);
-			UpdateEnergy(energy + 1);
+			UpdateEnergy(energy + 3);
 		}
 	}
 
@@ -113,6 +113,10 @@ public class Unit : MonoBehaviour {
 	public void UpdateEnergy(int amount) {
 		energy = amount;
 		energyText.text = energy.ToString();
+		if (energy >= 10)
+			energyText.fontSize = 72;
+		else
+			energyText.fontSize = 90;
 	}
 
 	public int GetID() {

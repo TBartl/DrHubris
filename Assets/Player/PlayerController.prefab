@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959412109795302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.03, y: 6.88, z: 0}
+  m_LocalPosition: {x: -7, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4590912317454206}
@@ -81,18 +81,18 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5909796, g: 0.7647059, b: 0.5847751, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 0.4
-    height: 1
+    y: 0.5
+    width: 0.5
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -183,8 +183,6 @@ MonoBehaviour:
     m_RotationOrder: 0
   connectionLinePoolSize: 16
   connectionLinePrefab: {fileID: 1661614825360296, guid: 0278aa27c9b985a459d753f717ef94e6,
-    type: 2}
-  regularConnectionMat: {fileID: 2100000, guid: 0905d92c067320542bd503f0a8f78df5,
     type: 2}
   targetConnectionMat: {fileID: 2100000, guid: c9be2dc65b540e5408fb486c146b94ee, type: 2}
   lrWidthByDistPercent:

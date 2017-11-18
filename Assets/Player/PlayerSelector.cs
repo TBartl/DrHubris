@@ -31,7 +31,6 @@ public class PlayerSelector : MonoBehaviour {
 	public int connectionLinePoolSize = 16;
 	public GameObject connectionLinePrefab;
 	List<LineRenderer> connectionLines = new List<LineRenderer>();
-	public Material regularConnectionMat;
 	public Material targetConnectionMat;
 	public AnimationCurve lrWidthByDistPercent;
 
@@ -48,7 +47,7 @@ public class PlayerSelector : MonoBehaviour {
 
 	void Start() {
 		cameraCo = StartCoroutine(FollowUnit());
-		currentUnit = Unit.allUnits[identity.id][0];
+		//currentUnit = Unit.allUnits[identity.id][0];
 		if (currentUnit)
 			currentUnit.SetSelected(true);
 
@@ -139,7 +138,7 @@ public class PlayerSelector : MonoBehaviour {
 					lr.material = targetConnectionMat;
 				}
 				else {
-					lr.material = regularConnectionMat;
+					lr.material = ColorDatabase.S.lineMaterials[identity.id];
 				}
 				float percentDist = 1 - Vector3.Distance(this.transform.position, u.transform.position) / maxTransferDistance;
 				float sizeMultiplier = lrWidthByDistPercent.Evaluate(percentDist);
