@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d017e5ab6ff2f468f1021a33b98833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTransferDistance: 10
   speed: 7
   moveTime: 1
   scoreByDot:
@@ -176,6 +177,30 @@ MonoBehaviour:
       value: 0.15814209
       inSlope: -0.008861564
       outSlope: -0.008861564
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  connectionLinePoolSize: 16
+  connectionLinePrefab: {fileID: 1661614825360296, guid: 0278aa27c9b985a459d753f717ef94e6,
+    type: 2}
+  regularConnectionMat: {fileID: 2100000, guid: 0905d92c067320542bd503f0a8f78df5,
+    type: 2}
+  targetConnectionMat: {fileID: 2100000, guid: c9be2dc65b540e5408fb486c146b94ee, type: 2}
+  lrWidthByDistPercent:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.3500023
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: -0.0000076293945
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

@@ -7,6 +7,7 @@ public class PlayerSelector : MonoBehaviour {
 
 	PlayerIdentity identity;
 
+	public float maxTransferDistance = 10f;
 	public float speed;
 	
 	Unit currentUnit;
@@ -24,6 +25,16 @@ public class PlayerSelector : MonoBehaviour {
 
 	bool aWasPressed;
 
+	List<Unit> connectedUnits;
+	Unit bestConnectedUnit;
+
+	public int connectionLinePoolSize = 16;
+	public GameObject connectionLinePrefab;
+	List<LineRenderer> connectionLines = new List<LineRenderer>();
+	public Material regularConnectionMat;
+	public Material targetConnectionMat;
+	public AnimationCurve lrWidthByDistPercent;
+
 	void Awake() {
 		identity = this.GetComponent<PlayerIdentity>();
 		padState = GamePad.GetState((PlayerIndex)identity.id);
@@ -34,13 +45,18 @@ public class PlayerSelector : MonoBehaviour {
 		currentUnit = Unit.allUnits[identity.id][0];
 		if (currentUnit)
 			currentUnit.SetSelected(true);
+
+		for (int i = 0; i < connectionLinePoolSize; i++) {
+			connectionLines.Add(Instantiate(connectionLinePrefab, this.transform).GetComponent<LineRenderer>());
+		}
 	}
 
 	void Update() {
 		padState = GamePad.GetState((PlayerIndex)identity.id);
-
-
+		
 		Vector2 leftJoystick = GetLeftJoystickDir();
+
+		UpdateBestUnit(leftJoystick.normalized);
 
 		bool aIsPressed = padState.Buttons.A == ButtonState.Pressed;
 		if (aIsPressed && !aWasPressed) {
@@ -55,34 +71,80 @@ public class PlayerSelector : MonoBehaviour {
 			lastLeftStickMovement = leftJoystick;
 			currentUnit.CommandMoveInDirection(leftJoystick);
 		}
-		if (padState.Triggers.Right > .5f) {
+		if (padState.Buttons.B == ButtonState.Pressed) {
 			currentUnit.CommandFire(lastLeftStickMovement);
 		}
+
+		DrawConnections();
 	}
 
-	void MoveToAnotherUnit(Vector2 dir) {
-		Unit currentBest = null;
+	void UpdateBestUnit(Vector2 dir) {
+		bestConnectedUnit = null;
+		connectedUnits = new List<Unit>();
 		foreach (Unit u in Unit.allUnits[identity.id]) {
 			if (u == null)
 				continue;
 			if (u == currentUnit)
 				continue;
-			if (currentBest == null) {
-				currentBest = u;
+			if (currentUnit != null) {
+				float dist = Vector3.Distance(this.transform.position, u.transform.position);
+				if (dist > maxTransferDistance)
+					continue;
+			}
+
+			connectedUnits.Add(u);
+
+			if (bestConnectedUnit == null) {
+				bestConnectedUnit = u;
 				continue;
 			}
-			float currentBestScore = GetUnitScore(dir, currentBest);
+
+			float currentBestScore = GetUnitScore(dir, bestConnectedUnit);
 			float thisScore = GetUnitScore(dir, u);
 
 			if (thisScore > currentBestScore)
-				currentBest = u;
+				bestConnectedUnit = u;
 		}
-		if (currentBest) {
+	}
+
+	void DrawConnections() {
+		int unitIndex = 0;
+		Vector3 offset = Vector3.forward * .05f;
+		foreach (LineRenderer lr in connectionLines) {
+			if (currentUnit == null || unitIndex >= connectedUnits.Count) {
+				lr.enabled = false;
+			}
+			else {
+				lr.enabled = true;
+				Unit u = connectedUnits[unitIndex];
+				Vector3 thisOffset = offset;
+				if (u == bestConnectedUnit)
+					thisOffset *= .5f;
+
+				lr.SetPosition(0, currentUnit.transform.position + thisOffset);
+				lr.SetPosition(1, u.transform.position + thisOffset);
+
+				float percentDist = 1 - Vector3.Distance(this.transform.position, u.transform.position) / maxTransferDistance;
+				float sizeMultiplier = lrWidthByDistPercent.Evaluate(percentDist);
+				if (u == bestConnectedUnit) {
+					lr.material = targetConnectionMat;
+					sizeMultiplier *= 1.3f;
+				}
+				else {
+					lr.material = regularConnectionMat;
+				}
+			}
+			unitIndex += 1;
+		}
+	}
+
+	void MoveToAnotherUnit(Vector2 dir) {
+		if (bestConnectedUnit) {
 			if (currentUnit)
 				currentUnit.SetSelected(false);
-			currentBest.SetSelected(true);
+			bestConnectedUnit.SetSelected(true);
 
-			currentUnit = currentBest;
+			currentUnit = bestConnectedUnit;
 			StopCoroutine(cameraCo);
 			cameraCo = StartCoroutine(MoveToNewUnit());
 		}
@@ -95,7 +157,6 @@ public class PlayerSelector : MonoBehaviour {
 		float score = 0;
 		score += scoreByDot.Evaluate(dot);
 		score += scoreByDistance.Evaluate(distance);
-		Debug.Log(score);
 		return score;
 	}
 
