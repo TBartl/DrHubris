@@ -41,7 +41,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -982381405332843317, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d017e5ab6ff2f468f1021a33b98833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTransferDistance: 10
+  maxTransferDistance: 6
   speed: 7
   moveTime: 1
   scoreByDot:
@@ -192,13 +192,13 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.3500023
+      value: -0.00000047683716
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: -0.0000076293945
+      value: 0.79999924
       inSlope: 0
       outSlope: 0
       tangentMode: 0

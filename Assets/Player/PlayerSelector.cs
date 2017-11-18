@@ -140,8 +140,10 @@ public class PlayerSelector : MonoBehaviour {
 
 	void MoveToAnotherUnit(Vector2 dir) {
 		if (bestConnectedUnit) {
-			if (currentUnit)
+			if (currentUnit) {
 				currentUnit.SetSelected(false);
+				currentUnit.TransferEnergy(bestConnectedUnit);
+			}
 			bestConnectedUnit.SetSelected(true);
 
 			currentUnit = bestConnectedUnit;

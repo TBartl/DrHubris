@@ -15,6 +15,9 @@ public class Unit : MonoBehaviour {
 	public SpriteRenderer invulnSprite;
 	public Text energyText;
 
+	public GameObject energyTransferPrefab;
+	public float energyTransferRate;
+
 	public float speed;
 	public float fireAngle = 15;
 
@@ -23,7 +26,7 @@ public class Unit : MonoBehaviour {
 	bool invuln = false;
 
 	Vector2 direction;
-	int energy = 0;
+	[HideInInspector] public int energy = 0;
 
 	void Awake() {
 		if (allUnits == null) {
@@ -107,7 +110,7 @@ public class Unit : MonoBehaviour {
 		return returnSpeed;
 	}
 
-	void UpdateEnergy(int amount) {
+	public void UpdateEnergy(int amount) {
 		energy = amount;
 		energyText.text = energy.ToString();
 	}
@@ -128,6 +131,21 @@ public class Unit : MonoBehaviour {
 		}
 		invuln = false;
 		invulnSprite.gameObject.SetActive(false);
+	}
+
+	public void TransferEnergy(Unit to) {
+		StartCoroutine(RunTransferEnergy(to));
+	}
+
+	IEnumerator RunTransferEnergy(Unit to) {
+		if (this.energy == 0)
+			yield return new WaitForSeconds(energyTransferRate * 2);
+		while (this.energy > 0 && to) {
+			GameObject g = Instantiate(energyTransferPrefab);
+			this.UpdateEnergy(this.energy - 1);
+			g.GetComponent<EnergyTransfer>().Transfer(this, to);
+			yield return new WaitForSeconds(energyTransferRate);
+		}
 	}
 
 }

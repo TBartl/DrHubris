@@ -219,10 +219,14 @@ MonoBehaviour:
   selectionSprite: {fileID: 212975794523716040}
   invulnSprite: {fileID: 212991909960789564}
   energyText: {fileID: 114702927504576742}
+  energyTransferPrefab: {fileID: 1925908961702304, guid: 5ad5bb6c15890244cac0a29234df3850,
+    type: 2}
+  energyTransferRate: 0.25
   speed: 1.5
   fireAngle: 15
   maxInvulnTime: 1.5
   invulnSpeedMultiplier: 3
+  energy: 0
 --- !u!114 &114680507764576802
 MonoBehaviour:
   m_ObjectHideFlags: 1
