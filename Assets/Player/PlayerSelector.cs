@@ -13,8 +13,6 @@ public class PlayerSelector : MonoBehaviour {
 
 	GamePadState padState;
 
-	bool rightStickReset = true;
-
 	public float moveTime = 1f;
 
 	public AnimationCurve scoreByDot;
@@ -23,6 +21,8 @@ public class PlayerSelector : MonoBehaviour {
 	Vector2 lastLeftStickMovement;
 
 	Coroutine cameraCo;
+
+	bool aWasPressed;
 
 	void Awake() {
 		identity = this.GetComponent<PlayerIdentity>();
@@ -39,19 +39,17 @@ public class PlayerSelector : MonoBehaviour {
 	void Update() {
 		padState = GamePad.GetState((PlayerIndex)identity.id);
 
-		Vector2 rightJoystick = GetRightJoystickDir();
-		if (rightJoystick.magnitude < .4f) {
-			rightStickReset = true;
+
+		Vector2 leftJoystick = GetLeftJoystickDir();
+
+		bool aIsPressed = padState.Buttons.A == ButtonState.Pressed;
+		if (aIsPressed && !aWasPressed) {
+			MoveToAnotherUnit(leftJoystick.normalized);
 		}
-		if (rightJoystick.magnitude > .8f && rightStickReset) {
-			MoveToAnotherUnit(rightJoystick.normalized);
-			rightStickReset = false;
-		}
+		aWasPressed = aIsPressed;
 
 		if (!currentUnit)
 			return;
-
-		Vector2 leftJoystick = GetLeftJoystickDir();
 
 		if (leftJoystick.magnitude > .5f) {
 			lastLeftStickMovement = leftJoystick;
@@ -103,9 +101,6 @@ public class PlayerSelector : MonoBehaviour {
 
 	Vector2 GetLeftJoystickDir() {
 		return new Vector2(padState.ThumbSticks.Left.X, padState.ThumbSticks.Left.Y);
-	}
-	Vector2 GetRightJoystickDir() {
-		return new Vector2(padState.ThumbSticks.Right.X, padState.ThumbSticks.Right.Y);
 	}
 
 	IEnumerator FollowUnit() {

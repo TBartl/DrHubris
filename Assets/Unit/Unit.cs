@@ -86,6 +86,9 @@ public class Unit : MonoBehaviour {
 			Unit other = collision.gameObject.GetComponent<Unit>();
 			if (!invuln && other.GetID() != this.GetID())
 				Destroy(this.gameObject);
+			if (invuln && other.invuln)
+				direction = Vector2.Reflect(direction, collision.contacts[0].normal).normalized;
+
 		} else if (collision.gameObject.tag == "Wall") {
 			direction = Vector2.Reflect(direction, collision.contacts[0].normal).normalized;
 		}
@@ -94,7 +97,7 @@ public class Unit : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.tag == "Pickup") {
 			Destroy(collision.gameObject);
-			UpdateEnergy(energy);
+			UpdateEnergy(energy + 1);
 		}
 	}
 
