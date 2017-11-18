@@ -35,6 +35,12 @@ public class PlayerSelector : MonoBehaviour {
 	public Material targetConnectionMat;
 	public AnimationCurve lrWidthByDistPercent;
 
+	public float reloadTime;
+	bool reloaded = true;
+	public float maxMoveBufferTime = .5f;
+	float moveBufferTime;
+	
+
 	void Awake() {
 		identity = this.GetComponent<PlayerIdentity>();
 		padState = GamePad.GetState((PlayerIndex)identity.id);
@@ -60,9 +66,14 @@ public class PlayerSelector : MonoBehaviour {
 
 		bool aIsPressed = padState.Buttons.A == ButtonState.Pressed;
 		if (aIsPressed && !aWasPressed) {
+			moveBufferTime = maxMoveBufferTime;
+		}
+		if (moveBufferTime > 0 && reloaded) {
 			MoveToAnotherUnit(leftJoystick.normalized);
+			StartCoroutine(Reload());
 		}
 		aWasPressed = aIsPressed;
+		moveBufferTime -= Time.deltaTime;
 
 		DrawConnections();
 
@@ -184,4 +195,9 @@ public class PlayerSelector : MonoBehaviour {
 		cameraCo = StartCoroutine(FollowUnit());
 	}
 
+	IEnumerator Reload() {
+		reloaded = false;
+		yield return new WaitForSeconds(maxMoveBufferTime);
+		reloaded = true;
+	}
 }

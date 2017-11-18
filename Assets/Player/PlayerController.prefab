@@ -205,6 +205,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  reloadTime: 0.5
+  maxMoveBufferTime: 0.5
 --- !u!124 &124017698317261260
 Behaviour:
   m_ObjectHideFlags: 1
