@@ -98,8 +98,10 @@ public class Unit : MonoBehaviour {
 		if (collision.gameObject.tag == "Unit")
 		{
 			Unit other = collision.gameObject.GetComponent<Unit>();
-			if (!invuln && other.GetID() != this.GetID())
+			if (!invuln && other.GetID() != this.GetID()) {
 				Destroy(this.gameObject);
+				GameObject g = Instantiate(ParticleDatabase.S.blood[identity.id], this.transform.position, Quaternion.identity);
+			}
 			if (invuln && other.invuln)
 				direction = Vector2.Reflect(direction, collision.contacts[0].normal).normalized;
 

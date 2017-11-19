@@ -15,10 +15,8 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public void SetTutorial() {
-		if (music) {
-			music.clip = tutorial;
-			music.Play();
-		}
+		music.clip = tutorial;
+		music.Play();
 	}
 	public void SetGameplay() {
 		StartCoroutine(WaitThenSwitchClip(gameplay));

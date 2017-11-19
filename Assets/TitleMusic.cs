@@ -14,6 +14,7 @@ public class TitleMusic : MonoBehaviour {
 	void OnSceneChanged(Scene from, Scene to) {
 		if (to.buildIndex > 1) {
 			Destroy(this.gameObject);
+			SceneManager.activeSceneChanged -= OnSceneChanged;
 		}
 
 	}

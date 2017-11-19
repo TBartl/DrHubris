@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using XInputDotNetPure;
 
@@ -12,6 +13,14 @@ public class GameManager : MonoBehaviour {
 
 	public MeshRenderer ground;
 	public MeshRenderer wall;
+	public int restartTime = 10;
+
+	public GameObject endPanel;
+	public Text endPanelText;
+
+	void Start() {
+		endPanel.SetActive(false);
+	}
 
 	void Update() {
 		int numRemaining = 0;
@@ -23,28 +32,48 @@ public class GameManager : MonoBehaviour {
 			StartCoroutine(Restart());
 		}
 		for (int i = 0; i < PlayerIdentity.numPlayers; i++) {
-			if (GamePad.GetState((PlayerIndex)i).DPad.Down == ButtonState.Pressed) {
-				SceneManager.LoadScene(2);
-			}
 			if (GamePad.GetState((PlayerIndex)i).DPad.Left == ButtonState.Pressed) {
 				TutorialManager.disableOnAwake = false;
+				SceneTransitioner.S.ResetScene();
 			}
 			if (GamePad.GetState((PlayerIndex)i).DPad.Right == ButtonState.Pressed) {
 				TutorialManager.disableOnAwake = true;
+				SceneTransitioner.S.ResetScene();
 			}
 		}
 	}
 
 	IEnumerator Restart() {
 		restarting = true;
-		AudioManager.S.SetDone();
+		int winner = -1;
 		for (int i = 0; i < Unit.allUnits.Count; i++) {
 			if (Unit.allUnits[i].Count > 0) {
 				ground.material.mainTexture = winGroundTextures[i];
 				wall.material.mainTexture = winWallTextures[i];
+				winner = i;
 			}
 		}
-		yield return new WaitForSeconds(2);
-		SceneManager.LoadScene(0);
+		endPanel.SetActive(true);
+		string endText = "";
+		if (winner == -1)
+			endText += "<b>Draw!</b>\n";
+		else if (winner == 0)
+			endText += "<b>Blue Win!</b>\n";
+		else if (winner == 1)
+			endText += "<b>Red Win!</b>\n";
+
+		endText += "Quick Restart:        \n";
+		endText += "Returning to menu in\n";
+
+		for (float t = restartTime; t > 0; t -= Time.deltaTime) {
+			for (int i = 0; i < PlayerIdentity.numPlayers; i++) {
+				if (GamePad.GetState((PlayerIndex)i).Buttons.X == ButtonState.Pressed) {
+					SceneTransitioner.S.ResetScene();
+				}
+			}
+			endPanelText.text = endText + Mathf.CeilToInt(t).ToString() + "...";
+			yield return null;
+		}
+		SceneTransitioner.S.NextScene();
 	}
 }

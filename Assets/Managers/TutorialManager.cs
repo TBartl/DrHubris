@@ -52,9 +52,12 @@ public class TutorialManager : MonoBehaviour {
 			StartCoroutine(RunTutorial(i));
 			tutorialsRemaining += 1;
 		}
-		StartCoroutine(WaitForTutorialsToEnd());
 		spawner = FindObjectOfType<PickupSpawner>();
 		spawner.enabled = false;
+	}
+
+	void Start() {
+		StartCoroutine(WaitForTutorialsToEnd());
 	}
 
 	IEnumerator WaitForTutorialsToEnd() {

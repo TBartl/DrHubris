@@ -228,6 +228,8 @@ MonoBehaviour:
   invulnSpeedIncrease: 5
   energy: 0
   selectedSpeedIncrease: 2
+  flashInvulnSpeed: 0.1
+  blood: {fileID: 1437745756860490, guid: 929e3671333d86247bc40b806b76f5c3, type: 2}
 --- !u!114 &114680507764576802
 MonoBehaviour:
   m_ObjectHideFlags: 1
