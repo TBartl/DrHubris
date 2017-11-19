@@ -702,6 +702,12 @@ Prefab:
       propertyPath: m_Name
       value: Pickup (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114848445612038832, guid: e3849b98270a3cd4f8b1a3974d0e4b18,
+        type: 2}
+      propertyPath: pickupParticles
+      value: 
+      objectReference: {fileID: 1437745756860490, guid: 0681679299cc8604da05291a300fde64,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3849b98270a3cd4f8b1a3974d0e4b18, type: 2}
   m_IsPrefabParent: 0

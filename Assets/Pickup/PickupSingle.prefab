@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 1
+  pickupParticles: {fileID: 1437745756860490, guid: 0681679299cc8604da05291a300fde64,
+    type: 2}
 --- !u!212 &212088682202535524
 SpriteRenderer:
   m_ObjectHideFlags: 1

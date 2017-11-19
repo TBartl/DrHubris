@@ -113,7 +113,7 @@ public class Unit : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collision) {
 		Energy e = collision.gameObject.GetComponent<Energy>();
 		if (e != null) {
-			Destroy(collision.gameObject);
+			e.Collect();
 			UpdateEnergy(energy + e.amount);
 		}
 	}
