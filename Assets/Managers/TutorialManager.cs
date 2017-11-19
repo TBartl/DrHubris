@@ -64,6 +64,7 @@ public class TutorialManager : MonoBehaviour {
 		AudioManager.S.SetTutorial();
 		while (tutorialsRemaining > 0)
 			yield return null;
+
 		spawner.enabled = true;
 		foreach (GameObject wall in walls) {
 			Destroy(wall);
@@ -143,5 +144,11 @@ public class TutorialManager : MonoBehaviour {
 
 	public void OnCloneDie(int i) {
 		states[i].remainingClones -= 1;
+	}
+
+	public static bool Running() {
+		if (S == null)
+			return false;
+		return S.tutorialsRemaining > 0;
 	}
 }

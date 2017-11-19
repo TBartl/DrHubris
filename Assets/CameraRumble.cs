@@ -15,7 +15,7 @@ public class CameraRumble : MonoBehaviour {
 
 	void Update() {
 		if (rumble > 0) {
-			this.transform.localPosition = Random.insideUnitCircle * shake.Evaluate(rumble);
+			this.transform.localPosition = (Vector3)Random.insideUnitCircle * shake.Evaluate(rumble) + Vector3.back * 10;
 			rumble -= burnoff.Evaluate(rumble) * Time.deltaTime;
 		}
 	}

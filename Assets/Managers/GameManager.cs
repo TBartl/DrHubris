@@ -15,11 +15,15 @@ public class GameManager : MonoBehaviour {
 	public MeshRenderer wall;
 	public int restartTime = 10;
 
+	public GameObject arena;
+	public AnimationCurve arenaSizeOverTime;
+
 	public GameObject endPanel;
 	public Text endPanelText;
 
 	void Start() {
 		endPanel.SetActive(false);
+		StartCoroutine(ShrinkArena());
 	}
 
 	void Update() {
@@ -69,6 +73,7 @@ public class GameManager : MonoBehaviour {
 		for (float t = restartTime; t > 0; t -= Time.deltaTime) {
 			for (int i = 0; i < PlayerIdentity.numPlayers; i++) {
 				if (GamePad.GetState((PlayerIndex)i).Buttons.X == ButtonState.Pressed) {
+					TutorialManager.disableOnAwake = true;
 					SceneTransitioner.S.ResetScene();
 				}
 			}
@@ -76,5 +81,19 @@ public class GameManager : MonoBehaviour {
 			yield return null;
 		}
 		SceneTransitioner.S.NextScene();
+	}
+
+	IEnumerator ShrinkArena() {
+		yield return null;
+		yield return null;
+		while (TutorialManager.Running())
+			yield return null;
+
+		float elapsedTime = 0;
+		while (!restarting) {
+			elapsedTime += Time.deltaTime;
+			arena.transform.localScale = Vector3.one * arenaSizeOverTime.Evaluate(elapsedTime);
+			yield return null;
+		}
 	}
 }

@@ -46,9 +46,13 @@ public class PlayerSelector : MonoBehaviour {
 	public float arrowSeparation;
 	public float arrowSpeed;
 
+	CameraRumble camRumble;
+	int lastUnitCount = 2;
+
 	void Awake() {
 		identity = this.GetComponent<PlayerIdentity>();
 		padState = GamePad.GetState((PlayerIndex)identity.id);
+		camRumble = this.GetComponentInChildren<CameraRumble>();
 	}
 
 	void Start() {
@@ -88,6 +92,7 @@ public class PlayerSelector : MonoBehaviour {
 
 		DrawConnections();
 		DrawArrows();
+		UpdateRumble();
 
 		if (!currentUnit)
 			return;
@@ -190,6 +195,15 @@ public class PlayerSelector : MonoBehaviour {
 				arrow.enabled = false;
 			}
 		}
+	}
+
+	void UpdateRumble() {
+		int newCount = 0;
+		for (int i = 0; i < PlayerIdentity.numPlayersReal; i++) {
+			newCount += Unit.allUnits[i].Count;
+		}
+		camRumble.Add(Mathf.Abs(newCount - lastUnitCount));
+		lastUnitCount = newCount;
 	}
 
 	void MoveToAnotherUnit(Vector2 dir) {

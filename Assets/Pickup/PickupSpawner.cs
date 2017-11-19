@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupSpawner : MonoBehaviour {
-	
-	Bounds bounds;
+
+	Collider2D coll;
 
 	public List<GameObject> pickups;
 
@@ -12,8 +12,7 @@ public class PickupSpawner : MonoBehaviour {
 
 
 	void Awake() {
-		Collider2D coll = this.GetComponent<BoxCollider2D>();
-		bounds = coll.bounds;
+		coll = this.GetComponent<BoxCollider2D>();
 	}
 
 	void Start() {
@@ -22,6 +21,7 @@ public class PickupSpawner : MonoBehaviour {
 	IEnumerator SpawnPickups() {
 		while (true) {
 			foreach (GameObject pickup in pickups) {
+				Bounds bounds = coll.bounds;
 				Vector2 pos = this.transform.position;
 				pos.x += Random.Range(-bounds.extents.x, bounds.extents.x);
 				pos.y += Random.Range(-bounds.extents.y, bounds.extents.y);
