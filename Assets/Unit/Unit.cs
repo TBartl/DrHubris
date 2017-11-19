@@ -31,6 +31,8 @@ public class Unit : MonoBehaviour {
 	bool selected = false;
 	public float selectedSpeedIncrease = 2f;
 
+	public float flashInvulnSpeed = .1f;
+
 	void Awake() {
 		if (allUnits == null) {
 			allUnits = new List<List<Unit>>();
@@ -142,12 +144,22 @@ public class Unit : MonoBehaviour {
 
 	IEnumerator Invuln() {
 		invuln = true;
+		StartCoroutine(InvulnFlash());
 		for (float t = 0; t < maxInvulnTime; t += Time.deltaTime) {
 			invulnSprite.gameObject.SetActive(true);
 			yield return null;
 		}
 		invuln = false;
 		invulnSprite.gameObject.SetActive(false);
+	}
+
+	IEnumerator InvulnFlash() {
+		while (invuln) {
+			playerSprite.color = new Color(1, 1, 1, .2f);
+			yield return new WaitForSeconds(flashInvulnSpeed);
+			playerSprite.color = Color.white;
+			yield return new WaitForSeconds(flashInvulnSpeed);
+		}
 	}
 
 	public void TransferEnergy(Unit to) {
@@ -164,5 +176,4 @@ public class Unit : MonoBehaviour {
 			yield return new WaitForSeconds(energyTransferRate);
 		}
 	}
-
 }
