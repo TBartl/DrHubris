@@ -22,6 +22,8 @@ public class SceneTransitioner : MonoBehaviour {
 
 	void Start() {
 		StartCoroutine(Open());
+		top.gameObject.SetActive(true);
+		bottom.gameObject.SetActive(true);
 	}
 
 	public void NextScene() {

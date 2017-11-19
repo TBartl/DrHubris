@@ -7,7 +7,11 @@ using XInputDotNetPure;
 public class GameManager : MonoBehaviour {
 
 	bool restarting = false;
-	public List<Sprite> winGroundSprites;
+	public List<Texture2D> winGroundTextures;
+	public List<Texture2D> winWallTextures;
+
+	public MeshRenderer ground;
+	public MeshRenderer wall;
 
 	void Update() {
 		int numRemaining = 0;
@@ -35,8 +39,10 @@ public class GameManager : MonoBehaviour {
 		restarting = true;
 		AudioManager.S.SetDone();
 		for (int i = 0; i < Unit.allUnits.Count; i++) {
-			if (Unit.allUnits[i].Count > 0)
-				GameObject.Find("Ground").GetComponent<SpriteRenderer>().sprite = winGroundSprites[i];
+			if (Unit.allUnits[i].Count > 0) {
+				ground.material.mainTexture = winGroundTextures[i];
+				wall.material.mainTexture = winWallTextures[i];
+			}
 		}
 		yield return new WaitForSeconds(2);
 		SceneManager.LoadScene(0);

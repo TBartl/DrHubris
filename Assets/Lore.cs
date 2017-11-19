@@ -40,6 +40,7 @@ public class Lore : MonoBehaviour {
 				StartCoroutine(MoveCamToNextBackground(backgrounds[i+1]));
 			}
 		}
+		TutorialManager.disableOnAwake = false;
 		SceneTransitioner.S.NextScene();
 	}
 
