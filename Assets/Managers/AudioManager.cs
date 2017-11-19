@@ -29,7 +29,6 @@ public class AudioManager : MonoBehaviour {
 
 	IEnumerator WaitThenSwitchClip(AudioClip newClip) {
 		float remainingTime = music.clip.length - music.time;
-		Debug.Log(remainingTime);
 		yield return new WaitForSeconds(remainingTime);
 		music.clip = newClip;
 		music.Play();

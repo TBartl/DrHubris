@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 		}
 		for (int i = 0; i < PlayerIdentity.numPlayers; i++) {
 			if (GamePad.GetState((PlayerIndex)i).DPad.Down == ButtonState.Pressed) {
-				SceneManager.LoadScene(0);
+				SceneManager.LoadScene(2);
 			}
 			if (GamePad.GetState((PlayerIndex)i).DPad.Left == ButtonState.Pressed) {
 				TutorialManager.disableOnAwake = false;
