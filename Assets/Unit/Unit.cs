@@ -85,6 +85,7 @@ public class Unit : MonoBehaviour {
 		if (energy > 0) {
 			if (TutorialManager.S)
 				TutorialManager.S.OnClone(identity.id);
+			AudioManager.S.OnShot();
 		}
 
 		UpdateEnergy(0);
@@ -100,6 +101,7 @@ public class Unit : MonoBehaviour {
 			Unit other = collision.gameObject.GetComponent<Unit>();
 			if (!invuln && other.GetID() != this.GetID()) {
 				Destroy(this.gameObject);
+				AudioManager.S.OnDeath();
 				GameObject g = Instantiate(ParticleDatabase.S.blood[identity.id], this.transform.position, Quaternion.identity);
 			}
 			if (invuln && other.invuln)

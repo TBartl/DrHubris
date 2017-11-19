@@ -15,6 +15,10 @@ public class AudioManager : MonoBehaviour {
 
 	public AudioSource transfer;
 
+	public AudioSource shot;
+
+	public AudioSource death;
+
 	void Awake() {
 		S = this;
 	}
@@ -46,6 +50,14 @@ public class AudioManager : MonoBehaviour {
 
 	public void OnTransfer() {
 		transfer.PlayOneShot(transfer.clip);
+	}
+
+	public void OnShot() {
+		shot.PlayOneShot(shot.clip);
+	}
+
+	public void OnDeath() {
+		death.PlayOneShot(death.clip);
 	}
 
 }
