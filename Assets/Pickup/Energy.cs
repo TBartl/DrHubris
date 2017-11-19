@@ -9,6 +9,7 @@ public class Energy : MonoBehaviour {
 	public void Collect() {
 		Destroy(this.gameObject);
 		Instantiate(pickupParticles, this.transform.position, Quaternion.identity);
+		AudioManager.S.OnPickup(amount);
 	}
 
 }

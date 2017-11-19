@@ -206,6 +206,7 @@ public class PlayerSelector : MonoBehaviour {
 			currentUnit = bestConnectedUnit;
 			StopCoroutine(cameraCo);
 			cameraCo = StartCoroutine(MoveToNewUnit());
+			AudioManager.S.OnTransfer();
 		}
 	}
 

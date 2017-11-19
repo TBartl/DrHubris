@@ -32,11 +32,12 @@ public class GameManager : MonoBehaviour {
 			StartCoroutine(Restart());
 		}
 		for (int i = 0; i < PlayerIdentity.numPlayers; i++) {
-			if (GamePad.GetState((PlayerIndex)i).DPad.Left == ButtonState.Pressed) {
+			GamePadState pad = GamePad.GetState((PlayerIndex)i);
+			if (pad.DPad.Left == ButtonState.Pressed) {
 				TutorialManager.disableOnAwake = false;
 				SceneTransitioner.S.ResetScene();
 			}
-			if (GamePad.GetState((PlayerIndex)i).DPad.Right == ButtonState.Pressed) {
+			if (pad.DPad.Right == ButtonState.Pressed) {
 				TutorialManager.disableOnAwake = true;
 				SceneTransitioner.S.ResetScene();
 			}

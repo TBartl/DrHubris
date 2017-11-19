@@ -155,9 +155,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="-3666.2262"
-     inkscape:cy="875.73505"
+     inkscape:zoom="0.12374369"
+     inkscape:cx="-556.74018"
+     inkscape:cy="1258.4667"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -7647,7 +7647,10 @@ b1nZL/e4aPW6z4x3CgAAAACAPWjsuwAAAAAAAOzw/wPlR6UHfuZL3wAAAABJRU5ErkJggg==
        sodipodi:nodetypes="ssscccssssss" />
     <g
        id="g7320"
-       transform="translate(4.8861084,30.448155)">
+       transform="translate(4.8861084,30.448155)"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\UI\EndBox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <rect
          ry="0"
          rx="0"
@@ -7660,16 +7663,19 @@ b1nZL/e4aPW6z4x3CgAAAACAPWjsuwAAAAAAAOzw/wPlR6UHfuZL3wAAAABJRU5ErkJggg==
       <rect
          ry="0"
          rx="0"
-         y="-1907.2698"
-         x="-153.49345"
-         height="204.4881"
-         width="423.18417"
+         y="-1912.6897"
+         x="-164.70999"
+         height="215.32805"
+         width="445.61725"
          id="rect7294"
-         style="opacity:1;fill:#333333;fill-opacity:1;stroke:#000000;stroke-width:8;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="opacity:1;fill:#333333;fill-opacity:1;stroke:#000000;stroke-width:8.42408085;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
        id="g4678-01"
-       transform="matrix(0.79463289,0,0,0.79463289,939.34055,-1180.6135)">
+       transform="matrix(0.79463289,0,0,0.79463289,939.34055,-1180.6135)"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\DrHubris\Assets\UI\X.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <circle
          style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#13429e;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:7.96242428;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4.0999999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
          id="path4317-06-7-4"

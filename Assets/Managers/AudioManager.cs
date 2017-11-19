@@ -10,6 +10,11 @@ public class AudioManager : MonoBehaviour {
 
 	public AudioSource music;
 
+	public AudioSource pickupSingle;
+	public AudioSource pickupTriple;
+
+	public AudioSource transfer;
+
 	void Awake() {
 		S = this;
 	}
@@ -30,6 +35,17 @@ public class AudioManager : MonoBehaviour {
 		yield return new WaitForSeconds(remainingTime);
 		music.clip = newClip;
 		music.Play();
+	}
+
+	public void OnPickup(int amount) {
+		if (amount == 1)
+			pickupSingle.PlayOneShot(pickupSingle.clip);
+		else if (amount == 3)
+			pickupTriple.PlayOneShot(pickupTriple.clip);
+	}
+
+	public void OnTransfer() {
+		transfer.PlayOneShot(transfer.clip);
 	}
 
 }
