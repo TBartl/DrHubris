@@ -85,14 +85,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.5
+    y: 0
     width: 0.5
-    height: 0.5
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -205,6 +205,11 @@ MonoBehaviour:
     m_RotationOrder: 0
   reloadTime: 0.5
   maxMoveBufferTime: 0.5
+  arrowPrefab: {fileID: 1058370676439806, guid: e4dba2d6e3336b4489e5ef8cc587f34a,
+    type: 2}
+  arrowPoolSize: 10
+  arrowSeparation: 1
+  arrowSpeed: 3
 --- !u!124 &124017698317261260
 Behaviour:
   m_ObjectHideFlags: 1

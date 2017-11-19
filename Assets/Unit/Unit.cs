@@ -22,11 +22,14 @@ public class Unit : MonoBehaviour {
 	public float fireAngle = 15;
 
 	public float maxInvulnTime = 1f;
-	public float invulnSpeedMultiplier = 2f;
+	public float invulnSpeedIncrease = 2f;
 	bool invuln = false;
 
 	Vector2 direction;
 	[HideInInspector] public int energy = 0;
+
+	bool selected = false;
+	public float selectedSpeedIncrease = 2f;
 
 	void Awake() {
 		if (allUnits == null) {
@@ -61,6 +64,7 @@ public class Unit : MonoBehaviour {
 
 	public void SetSelected(bool selected) {
 		selectionSprite.gameObject.SetActive(selected);
+		this.selected = selected;
 	}
 
 	public void CommandMoveInDirection(Vector2 direction) {
@@ -75,6 +79,12 @@ public class Unit : MonoBehaviour {
 			clone.direction = RotateVec2(direction, (i - middle) * fireAngle);
 			clone.StartInvuln();
 		}
+
+		if (energy > 0) {
+			if (TutorialManager.S)
+				TutorialManager.S.OnClone(identity.id);
+		}
+
 		UpdateEnergy(0);
 	}
 
@@ -99,14 +109,16 @@ public class Unit : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.tag == "Pickup") {
 			Destroy(collision.gameObject);
-			UpdateEnergy(energy + 3);
+			UpdateEnergy(energy + 1);
 		}
 	}
 
 	float GetSpeed() {
 		float returnSpeed = speed;
 		if (invuln)
-			returnSpeed *= invulnSpeedMultiplier;
+			returnSpeed += invulnSpeedIncrease;
+		if (selected)
+			returnSpeed += selectedSpeedIncrease;
 		return returnSpeed;
 	}
 

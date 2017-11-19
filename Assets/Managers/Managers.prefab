@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114354627735991400}
   - component: {fileID: 114052295874673404}
   - component: {fileID: 114541908945988198}
+  - component: {fileID: 114261635011863988}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -54,6 +55,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1324951693690194, guid: c6c6a5c4e506bbc41a8a1c6b188a3fd4, type: 2}
+--- !u!114 &114261635011863988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587305500754070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778232b7396330c4f8c01f9ed4daf4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winGroundSprites:
+  - {fileID: 21300000, guid: 6dd8d0a7577bd2249a8c9169dd5870b0, type: 3}
+  - {fileID: 21300000, guid: 021809c77b86a0d4194854a15563d999, type: 3}
 --- !u!114 &114354627735991400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,6 +85,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8742158c329af52419de03bf8ea1132e, type: 3}
   - {fileID: 21300000, guid: 2c497ba4fa4c62340bc97c7bcff22483, type: 3}
   - {fileID: 21300000, guid: a9066cb2d071f1b4eb3848d6df33b4df, type: 3}
+  - {fileID: 21300000, guid: 8cf22087b0dad924aba990b53b72fecf, type: 3}
 --- !u!114 &114541908945988198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,3 +102,4 @@ MonoBehaviour:
   - {fileID: 2100000, guid: aa2527cd8799aca4583b574fe05d15e8, type: 2}
   - {fileID: 2100000, guid: 583b9dc597525f24c882e05986b4e19c, type: 2}
   - {fileID: 2100000, guid: 53281f4626d9a054b85b0fef762d9496, type: 2}
+  - {fileID: 2100000, guid: e5c763c1c3de6d943b891f630fbff94a, type: 2}

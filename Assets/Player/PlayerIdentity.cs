@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerIdentity : MonoBehaviour {
 
-	public static int numPlayers = 4;
+	public static int numPlayersReal = 2;
+	public static int numPlayers = 5;
 
 	public int id;
-
-
 }

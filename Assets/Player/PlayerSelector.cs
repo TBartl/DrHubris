@@ -9,7 +9,7 @@ public class PlayerSelector : MonoBehaviour {
 
 	public float maxTransferDistance = 10f;
 	public float speed;
-	
+
 	Unit currentUnit;
 
 	GamePadState padState;
@@ -24,6 +24,7 @@ public class PlayerSelector : MonoBehaviour {
 	Coroutine cameraCo;
 
 	bool aWasPressed;
+	bool bWasPressed;
 
 	List<Unit> connectedUnits;
 	Unit bestConnectedUnit;
@@ -38,7 +39,12 @@ public class PlayerSelector : MonoBehaviour {
 	bool reloaded = true;
 	public float maxMoveBufferTime = .5f;
 	float moveBufferTime;
-	
+
+	public GameObject arrowPrefab;
+	List<SpriteRenderer> arrows = new List<SpriteRenderer>();
+	public int arrowPoolSize = 10;
+	public float arrowSeparation;
+	public float arrowSpeed;
 
 	void Awake() {
 		identity = this.GetComponent<PlayerIdentity>();
@@ -54,27 +60,34 @@ public class PlayerSelector : MonoBehaviour {
 		for (int i = 0; i < connectionLinePoolSize; i++) {
 			connectionLines.Add(Instantiate(connectionLinePrefab, this.transform).GetComponent<LineRenderer>());
 		}
+		for (int i = 0; i < arrowPoolSize; i++) {
+			arrows.Add(Instantiate(arrowPrefab, this.transform).GetComponent<SpriteRenderer>());
+		}
 	}
 
 	void Update() {
 		padState = GamePad.GetState((PlayerIndex)identity.id);
-		
+
 		Vector2 leftJoystick = GetLeftJoystickDir();
 
 		UpdateBestUnit(leftJoystick.normalized);
 
 		bool aIsPressed = padState.Buttons.A == ButtonState.Pressed;
+		bool bIsPressed = padState.Buttons.B == ButtonState.Pressed;
+
 		if (aIsPressed && !aWasPressed) {
 			moveBufferTime = maxMoveBufferTime;
 		}
-		if (moveBufferTime > 0 && reloaded) {
+		if ((moveBufferTime > 0 || currentUnit == null) && reloaded) {
 			MoveToAnotherUnit(leftJoystick.normalized);
 			StartCoroutine(Reload());
+			moveBufferTime = 0;
 		}
 		aWasPressed = aIsPressed;
 		moveBufferTime -= Time.deltaTime;
 
 		DrawConnections();
+		DrawArrows();
 
 		if (!currentUnit)
 			return;
@@ -82,10 +95,14 @@ public class PlayerSelector : MonoBehaviour {
 		if (leftJoystick.magnitude > .5f) {
 			lastLeftStickMovement = leftJoystick;
 			currentUnit.CommandMoveInDirection(leftJoystick);
+
+			if (TutorialManager.S)
+				TutorialManager.S.OnMoved(identity.id);
 		}
-		if (padState.Buttons.B == ButtonState.Pressed) {
+		if (bIsPressed && !bWasPressed) {
 			currentUnit.CommandFire(lastLeftStickMovement);
 		}
+		bWasPressed = bIsPressed;
 	}
 
 	void UpdateBestUnit(Vector2 dir) {
@@ -148,11 +165,41 @@ public class PlayerSelector : MonoBehaviour {
 		}
 	}
 
+	void DrawArrows() {
+
+		if (currentUnit == null || bestConnectedUnit == null) {
+			foreach (SpriteRenderer arrow in arrows) {
+				arrow.enabled = false;
+			}
+			return;
+		}
+
+		float totalDistBetween = Vector3.Distance(currentUnit.transform.position, bestConnectedUnit.transform.position);
+		Vector3 diff = (bestConnectedUnit.transform.position - currentUnit.transform.position).normalized;
+		for (int i = 0; i < arrows.Count; i++) {
+			SpriteRenderer arrow = arrows[i];
+			float dist = (i + (Time.time * arrowSpeed) % 1) * arrowSeparation;
+			if (dist < totalDistBetween) {
+				arrow.enabled = true;
+				arrow.transform.position = currentUnit.transform.position + diff * dist;
+				arrow.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 90);
+				arrow.color = ColorDatabase.S.lineMaterials[identity.id].color;
+				arrow.transform.localScale = Vector3.one * lrWidthByDistPercent.Evaluate(1-dist / maxTransferDistance);
+			}
+			else {
+				arrow.enabled = false;
+			}
+		}
+	}
+
 	void MoveToAnotherUnit(Vector2 dir) {
 		if (bestConnectedUnit) {
 			if (currentUnit) {
 				currentUnit.SetSelected(false);
 				currentUnit.TransferEnergy(bestConnectedUnit);
+
+				if (TutorialManager.S)
+					TutorialManager.S.OnTransferred(identity.id);
 			}
 			bestConnectedUnit.SetSelected(true);
 
