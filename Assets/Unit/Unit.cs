@@ -107,9 +107,10 @@ public class Unit : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.tag == "Pickup") {
+		Energy e = collision.gameObject.GetComponent<Energy>();
+		if (e != null) {
 			Destroy(collision.gameObject);
-			UpdateEnergy(energy + 1);
+			UpdateEnergy(energy + e.amount);
 		}
 	}
 

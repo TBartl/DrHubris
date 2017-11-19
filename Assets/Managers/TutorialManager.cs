@@ -32,6 +32,7 @@ public class TutorialManager : MonoBehaviour {
 	public Sprite waitInstruction;
 
 	public List<GameObject> walls;
+	public GameObject pickup;
 
 	public Sprite check;
 	public float checkTime;
@@ -57,6 +58,7 @@ public class TutorialManager : MonoBehaviour {
 	}
 
 	IEnumerator WaitForTutorialsToEnd() {
+		AudioManager.S.SetTutorial();
 		while (tutorialsRemaining > 0)
 			yield return null;
 		spawner.enabled = true;
@@ -68,6 +70,7 @@ public class TutorialManager : MonoBehaviour {
 			state.instructions.sprite = null;
 			state.firstPickup.SetActive(true);
 		}
+		AudioManager.S.SetGameplay();
 	}
 
 	IEnumerator RunTutorial(int i) {
@@ -79,7 +82,7 @@ public class TutorialManager : MonoBehaviour {
 		states[i].instructions.sprite = check;
 		yield return new WaitForSeconds(checkTime);
 
-		GameObject lightning = Instantiate(spawner.pickup, states[i].electricSpawnPosition.position, Quaternion.identity);
+		GameObject lightning = Instantiate(pickup, states[i].electricSpawnPosition.position, Quaternion.identity);
 		CallbackOnDestroy callback = lightning.AddComponent<CallbackOnDestroy>();
 		callback.callback = () => { OnGather(i); };
 		states[i].instructions.sprite = gatherInstruction;

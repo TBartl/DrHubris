@@ -6,7 +6,7 @@ public class PickupSpawner : MonoBehaviour {
 	
 	Bounds bounds;
 
-	public GameObject pickup;
+	public List<GameObject> pickups;
 
 	public float spawnTime = 1f;
 
@@ -21,12 +21,14 @@ public class PickupSpawner : MonoBehaviour {
 	}
 	IEnumerator SpawnPickups() {
 		while (true) {
-			Vector2 pos = this.transform.position;
-			pos.x += Random.Range(-bounds.extents.x, bounds.extents.x);
-			pos.y += Random.Range(-bounds.extents.y, bounds.extents.y);
-			Instantiate(pickup, pos, Quaternion.identity);
-			Instantiate(pickup, -pos, Quaternion.identity);
-			yield return new WaitForSeconds(spawnTime);
+			foreach (GameObject pickup in pickups) {
+				Vector2 pos = this.transform.position;
+				pos.x += Random.Range(-bounds.extents.x, bounds.extents.x);
+				pos.y += Random.Range(-bounds.extents.y, bounds.extents.y);
+				Instantiate(pickup, pos, Quaternion.identity);
+				Instantiate(pickup, -pos, Quaternion.identity);
+				yield return new WaitForSeconds(spawnTime);
+			}			
 		}
 	}
 }

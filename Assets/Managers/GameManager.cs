@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour {
 
 	void Update() {
 		int numRemaining = 0;
-		foreach (List<Unit> units in Unit.allUnits) {
-			if (units.Count > 0)
+		for (int i = 0; i < Unit.allUnits.Count; i++) {
+			if (Unit.allUnits[i].Count > 0)
 				numRemaining++;
 		}
 		if (!restarting && numRemaining <= 1) {
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator Restart() {
 		restarting = true;
+		AudioManager.S.SetDone();
 		for (int i = 0; i < Unit.allUnits.Count; i++) {
 			if (Unit.allUnits[i].Count > 0)
 				GameObject.Find("Ground").GetComponent<SpriteRenderer>().sprite = winGroundSprites[i];

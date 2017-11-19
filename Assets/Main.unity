@@ -428,6 +428,7 @@ MonoBehaviour:
   walls:
   - {fileID: 1149935747}
   - {fileID: 1895837708}
+  pickup: {fileID: 1728776370514398, guid: e3849b98270a3cd4f8b1a3974d0e4b18, type: 2}
   check: {fileID: 21300000, guid: 93e995276a94da74497d989a69ffc3f3, type: 3}
   checkTime: 0.5
 --- !u!1 &608603125
@@ -1197,8 +1198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1218a1005658d784a947c2d1a777cdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickup: {fileID: 1728776370514398, guid: e3849b98270a3cd4f8b1a3974d0e4b18, type: 2}
-  spawnTime: 1
+  pickups:
+  - {fileID: 1728776370514398, guid: 48713e09b08f9274c82003329c2a6522, type: 2}
+  - {fileID: 1728776370514398, guid: 48713e09b08f9274c82003329c2a6522, type: 2}
+  - {fileID: 1728776370514398, guid: e3849b98270a3cd4f8b1a3974d0e4b18, type: 2}
+  spawnTime: 2
 --- !u!1 &1456459372
 GameObject:
   m_ObjectHideFlags: 0
