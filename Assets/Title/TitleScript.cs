@@ -27,7 +27,7 @@ public class TitleScript : MonoBehaviour {
 			}
 		}
 		if (allInactive) {
-			Debug.Log("LETS GO");
+			SceneTransitioner.S.NextScene();
 		}
 	}
 }

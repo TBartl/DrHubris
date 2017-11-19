@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
+using UnityEngine.SceneManagement;
 
 public class Lore : MonoBehaviour {
 	public List<GameObject> backgrounds;
@@ -39,7 +40,7 @@ public class Lore : MonoBehaviour {
 				StartCoroutine(MoveCamToNextBackground(backgrounds[i+1]));
 			}
 		}
-		
+		SceneTransitioner.S.NextScene();
 	}
 
 	IEnumerator MoveCamToNextBackground(GameObject next) {
