@@ -15,6 +15,7 @@ public class PlayerSelector : MonoBehaviour {
 	GamePadState padState;
 
 	public float moveTime = 1f;
+	public AnimationCurve moveCurve;
 
 	public AnimationCurve scoreByDot;
 	public AnimationCurve scoreByDistance;
@@ -249,8 +250,9 @@ public class PlayerSelector : MonoBehaviour {
 	IEnumerator MoveToNewUnit() {
 		Vector3 from = this.transform.position;
 		for (float t = 0; t < moveTime; t += Time.deltaTime) {
+			float p = t / moveTime;
 			if (currentUnit)
-				this.transform.position = Vector2.Lerp(from, currentUnit.transform.position, Mathf.Pow(t / moveTime, .5f));
+				this.transform.position = Vector2.Lerp(from, currentUnit.transform.position, moveCurve.Evaluate(p));
 			yield return null;
 		}
 		cameraCo = StartCoroutine(FollowUnit());

@@ -766,6 +766,13 @@ MonoBehaviour:
   ground: {fileID: 0}
   wall: {fileID: 0}
   restartTime: 10
+  arena: {fileID: 0}
+  arenaSizeOverTime:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   endPanel: {fileID: 0}
   endPanelText: {fileID: 0}
 --- !u!114 &114354627735991400
