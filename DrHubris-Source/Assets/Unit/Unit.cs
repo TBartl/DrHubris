@@ -102,7 +102,7 @@ public class Unit : MonoBehaviour {
 			if (!invuln && other.GetID() != this.GetID()) {
 				Destroy(this.gameObject);
 				AudioManager.S.OnDeath();
-				GameObject g = Instantiate(ParticleDatabase.S.blood[identity.id], this.transform.position, Quaternion.identity);
+				Instantiate(ParticleDatabase.S.blood[identity.id], this.transform.position, Quaternion.identity);
 			}
 			if (invuln && other.invuln)
 				direction = Vector2.Reflect(direction, collision.contacts[0].normal).normalized;
