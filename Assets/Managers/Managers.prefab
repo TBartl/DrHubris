@@ -503,7 +503,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 854cc9df6af81b948a34e3a380839ee4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 73ffed537b2cb794bb4e1820ee20265c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -769,10 +769,28 @@ MonoBehaviour:
   arena: {fileID: 0}
   arenaSizeOverTime:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 50.04918
+      value: 0.99999475
+      inSlope: 0.000012778645
+      outSlope: 0.000012778645
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 120
+      value: 0.49495417
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   endPanel: {fileID: 0}
   endPanelText: {fileID: 0}
 --- !u!114 &114354627735991400
